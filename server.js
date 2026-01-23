@@ -23,4 +23,12 @@ mongooose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/nexra', {
 //Import the routes
 const cartRoutes = require('./routes/cart');
 const checkoutRoutes = require('./routes/checkout');
-const authRoutes = require('./auth/routes/usersRoutes');
+import createUserRoutes from "./auth/routes/usersRoutes"
+
+//API Routes
+app.use('/api/cart', cartRoutes);
+app.use('/api/checkout', checkoutRoutes);
+app.use('/api/auth', createUserRoutes)
+
+const PORT = process.env.PORT || 5001;
+app.listen(PORT, () => console.log(`Server starting on http://localhost:${PORT}`))

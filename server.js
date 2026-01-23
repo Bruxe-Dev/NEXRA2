@@ -10,3 +10,4 @@ app.use(cors()); //Allow Fronted Integration
 app.use(express.urlencoded({ extended: true }));
 
 //Serve my Static HTML Files
+app.use(express.static('public'))

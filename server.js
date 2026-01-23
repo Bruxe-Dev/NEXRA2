@@ -13,4 +13,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 //Database Connectivity
-mongooose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/nexra')
+mongooose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/nexra', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
+    .then(() => console.log("Database Connected Successfully"))
+    .catch(err => console.log('Database failed to connect', err))
+
+//Import the routes
+const cartRoutes = require('./routes/cart');
+const checkoutRoutes = require('./routes/checkout')

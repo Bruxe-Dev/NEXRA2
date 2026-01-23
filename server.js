@@ -10,4 +10,7 @@ app.use(cors()); //Allow Fronted Integration
 app.use(express.urlencoded({ extended: true }));
 
 //Serve my Static HTML Files
-app.use(express.static('public'))
+app.use(express.static('public'));
+
+//Database Connectivity
+mongooose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/nexra')

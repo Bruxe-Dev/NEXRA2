@@ -82,15 +82,63 @@ async function removeFromCart(productId) {
             }
         });
 
-        const data = response.json();
+        const data = await response.json();
         if (data.success) {
             alert('Successfully removed Item');
             updateCartCount();
-            dispayCart();//Refresh the cart display
+            dispayCart(); //Refresh the cart display
         }
     } catch (error) {
         console.error('Error removing item:', error);
     }
 }
 
-//Update Cart Quantity
+//Update Cart Item Quantity
+
+async function updateCartItemQuantity(productId, quantity) {
+    try {
+        const token = getToken();
+
+        const response = await fetch(`${API_URI}/cart/update`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({ productId, quantity })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            dispayCart();
+        }
+    } catch (error) {
+        console.error("Error updating the cart", error);
+    }
+}
+
+//====================Checkout Functions======================//
+
+//Proceed to Checkout
+async function proccedToCheckout() {
+    try {
+        const token = getToken();
+
+        if (!token) {
+            alert('Login to Procced');
+            window.Location.href('/login');
+            return;
+        }
+
+        const shippingAddress = {
+            street: '123 Main St',
+            city: 'Kigali',
+            state: 'Kigali',
+            zipCode: '00000',
+            country: 'Rwanda'
+        }
+    } catch (error) {
+
+    }
+}

@@ -18,7 +18,7 @@ async function addToCart(productId, quantity = 1) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorisation': `Bearer ${token}`
+                'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify({ productId, quantity })
         });
@@ -35,3 +35,62 @@ async function addToCart(productId, quantity = 1) {
         alert('Something went wrong')
     }
 }
+
+//Get Cart
+async function getCart() {
+    try {
+        const token = getToken();
+        if (!token) {
+            return null;
+        }
+        const response = await fetch(`${API_URI}/cart`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        const data = await response.json();
+
+        return data.cart;
+    } catch (error) {
+        console.error("Error fetching Cart");
+        return null;
+    }
+}
+
+//Updating a cart
+async function updateCartCount() {
+    const cart = await getCart();
+    const cartCount = cart ? cart.items.length : 0;
+
+    const cartBadge = document.querySelector('.cart-badge');
+    if (cartBadge) {
+        cartBadge.textContent = cartCount
+    }
+}
+
+//Remove item from Cart
+async function removeFromCart(productId) {
+    try {
+        const token = getToken();
+
+        const response = await fetch(`${API_URI}/cart/remove/:productId`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        const data = response.json();
+        if (data.success) {
+            alert('Successfully removed Item');
+            updateCartCount();
+            dispayCart();//Refresh the cart display
+        }
+    } catch (error) {
+        console.error('Error removing item:', error);
+    }
+}
+
+//Update Cart Quantity

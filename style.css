@@ -1,0 +1,503 @@
+:root {
+  --primary-color: #2d2d2d;
+  --accent-color: #d4a574;
+  --bg-light: #f8f9fa;
+}
+
+/* Base */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--primary-color);
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  padding: 1.5rem 0;
+  height: 150px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.btn-signin {
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 25px;
+  padding: 0.5rem 2rem;
+}
+
+.btn-light {
+  border-radius: 30px;
+}
+
+/* ================= HERO ================= */
+.hero {
+  padding: 80px 0;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 1s ease;
+}
+
+.hero-images {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero-images img {
+  width: 80%;
+  margin-right: 120px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.img-main {
+  z-index: 1;
+  left:80px;
+}
+
+.img-overlay {
+  position: absolute;
+  width: 55%;
+  right: -200px;
+  bottom: 70px;
+  z-index: 2;
+}
+
+.btn-shop {
+  background: var(--primary-color);
+  color: white;
+  padding: 1rem 3rem;
+  border-radius: 30px;
+  font-weight: 600;
+  animation: fadeInUp 1.4s ease;
+}
+
+.btn-shop:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+/* ================= CATEGORIES ================= */
+.categories {
+  padding: 4rem 0;
+}
+
+.category-item {
+  text-align: center;
+  animation: fadeIn 0.6s ease forwards;
+  opacity: 0;
+}
+
+.category-item:hover {
+  transform: translateY(-10px);
+}
+
+.category-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 0.5rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.category-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ================= PRODUCTS ================= */
+.product-section {
+  padding: 4rem 0;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+}
+
+.product-card {
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+}
+
+.product-image {
+  height: 400px;
+  object-fit: cover;
+}
+
+.product-price {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.add-btn {
+  background: black;
+  color: white;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+}
+
+/* ================= PROMO ================= */
+.promo-banner {
+  background: #f0eeea;
+  padding: 4rem 0;
+  margin: 4rem 0;
+}
+
+.promo-banner h2 {
+  font-size: 3rem;
+  animation: pulse 2s infinite;
+}
+
+.promo-image {
+  width: 200px;
+  height: 150px;
+  animation: floatAnimation 3s infinite;
+}
+
+/* ================= CTA ================= */
+.cta-section {
+  background: rgb(246,242,238);
+  padding: 5rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.cta-image {
+  width: 500px;
+  height: 300px;
+}
+
+form {
+  max-width: 400px;
+  display: flex;
+  gap: 10px;
+}
+
+.email-input {
+  border-radius: 50px;
+}
+
+.btn-secondary {
+  background: black;
+  border-radius: 20px;
+}
+
+/* ================= FOOTER ================= */
+ /* =========================
+   FOOTER BASE
+========================= */
+.footer {
+    background-color: #FAF9F9;
+    padding: 50px 50px 20px 50px;
+    margin-top: 1px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* =========================
+   FOOTER GRID LAYOUT
+========================= */
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.2fr 1.2fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-logo {
+    grid-column: 1;
+}
+
+/* =========================
+   FOOTER TEXT
+========================= */
+.footer-brand-name {
+    font-size: 24px;
+    font-weight: 700;
+    color: #000;
+}
+
+.footer-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+/* =========================
+   FOOTER LINKS
+========================= */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-weight: 500;
+}
+
+.footer-link {
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 12px;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #2563EB;
+}
+
+/* =========================
+   SOCIAL SECTION
+========================= */
+.footer-social {
+    display: flex;
+    flex-direction: column;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-link {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 28px;
+}
+
+.social-link i {
+    transition: all 0.3s ease;
+}
+
+/* =========================
+   SOCIAL COLORS
+========================= */
+.social-link.facebook {
+    background-color: #1877F2;
+    color: white;
+}
+
+.social-link.facebook:hover {
+    background-color: #0C63E4;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(24, 119, 242, 0.3);
+}
+
+.social-link.instagram {
+    background: linear-gradient(
+        135deg,
+        #667EEA 0%,
+        #764BA2 25%,
+        #F093FB 50%,
+        #F5576C 100%
+    );
+    color: white;
+}
+
+.social-link.instagram:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(240, 112, 251, 0.3);
+}
+
+.social-link.twitter {
+    background-color: #1DA1F2;
+    color: white;
+}
+.brand-title{
+    font-size: large;
+    font-weight: bold;
+}
+
+.social-link.twitter:hover {
+    background-color: #1991DA;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(29, 161, 242, 0.3);
+}
+
+.social-link.youtube {
+    background-color: #FF0000;
+    color: white;
+}
+
+.social-link.youtube:hover {
+    background-color: #CC0000;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(255, 0, 0, 0.3);
+}
+
+/* (duplicate kept as-is, unchanged) */
+.social-link.youtube {
+    background-color: #FF0000;
+    color: white;
+}
+
+.social-link.youtube:hover {
+    background-color: #CC0000;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(255, 0, 0, 0.3);
+}
+
+/* =========================
+   FOOTER BOTTOM
+========================= */
+.footer-bottom {
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-links-bottom {
+    display: flex;
+    gap: 30px;
+}
+
+.footer-link-bottom {
+    color: #666;
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.3s ease;
+}
+
+.footer-link-bottom:hover {
+    color: #2563EB;
+}
+
+.footer-copyright {
+    color: #999;
+    font-size: 13px;
+    margin: 0;
+    font-weight: 400;
+}
+
+/* Tablets */
+@media (max-width: 991px) {
+  .hero {
+    text-align: center;
+  }
+
+  .hero-images {
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  .hero-images img {
+    width: 85%;
+    margin-right: 0;
+  }
+
+  .img-overlay {
+    right: -50px;
+    bottom: -20px;
+  }
+
+  .cta-section {
+    flex-direction: column;
+  }
+
+  .cta-image {
+    width: 400px;
+    margin-top: 20px;
+    height: auto;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-images {
+    flex-direction: column;
+  }
+
+  .img-overlay {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    margin-top: -40px;
+    width: 70%;
+  }
+
+  .product-image {
+    height: 250px;
+  }
+
+  form {
+    flex-direction: column;
+
+  }
+
+  .cta-image {
+    width: 400px;
+  }
+}
+
+/* iPad Pro 1024 × 1366 */
+@media (width: 1024px) and (height: 1366px) {
+  .img-overlay {
+    right: -80px;
+    bottom: 10px;
+  }
+
+  .product-image {
+    height: 280px;
+  }
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes floatAnimation {
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse {
+  50% { transform: scale(1.05); }
+}

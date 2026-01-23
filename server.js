@@ -22,4 +22,5 @@ mongooose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/nexra', {
 
 //Import the routes
 const cartRoutes = require('./routes/cart');
-const checkoutRoutes = require('./routes/checkout')
+const checkoutRoutes = require('./routes/checkout');
+const authRoutes = require('./auth/routes/usersRoutes');

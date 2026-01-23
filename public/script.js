@@ -22,7 +22,16 @@ async function addToCart(productId, quantity = 1) {
             },
             body: JSON.stringify({ productId, quantity })
         });
-    } catch (error) {
 
+        const data = await response.json()
+        if (data.success) {
+            alert('Item added to cart');
+            updateCartCount();
+        } else {
+            alert('Failed to add item to cart');
+        }
+    } catch (error) {
+        console.error('Error adding to cart', error);
+        alert('Something went wrong')
     }
 }

@@ -199,3 +199,45 @@ async function processPayment(paymentMethod) {
         alert('Payment failed');
     }
 }
+
+//============================Display Function==========================//
+
+// Display Cart Items (for cart page)
+async function displayCart() {
+    const cart = await getCart();
+    const cartContainer = document.getElementById('cart-items-container');
+
+    if (!cartContainer) return;
+
+    if (!cart || cart.items.length === 0) {
+        cartContainer.innerHTML = '<p>Your cart is empty</p>';
+        return;
+    }
+
+    let html = '';
+    cart.items.forEach(item => {
+        html += `
+      <div class="cart-item">
+        <img src="${item.product.image}" alt="${item.product.name}">
+        <div class="item-details">
+          <h5>${item.product.name}</h5>
+          <p>Price: ${item.price} RWF</p>
+          <input type="number" 
+                 value="${item.quantity}" 
+                 min="1" 
+                 onchange="updateCartQuantity('${item.product._id}', this.value)">
+        </div>
+        <button onclick="removeFromCart('${item.product._id}')">Remove</button>
+      </div>
+    `;
+    });
+
+    html += `
+    <div class="cart-total">
+      <h4>Total: ${cart.totalAmount} RWF</h4>
+      <button onclick="proceedToCheckout()" class="btn btn-primary">Proceed to Checkout</button>
+    </div>
+  `;
+
+    cartContainer.innerHTML = html;
+}

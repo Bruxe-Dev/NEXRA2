@@ -121,24 +121,45 @@ async function updateCartItemQuantity(productId, quantity) {
 //====================Checkout Functions======================//
 
 //Proceed to Checkout
-async function proccedToCheckout() {
+async function proceedToCheckout() {
     try {
         const token = getToken();
 
         if (!token) {
-            alert('Login to Procced');
-            window.Location.href('/login');
+            alert('Please login first');
+            window.location.href = '/login.html';
             return;
         }
 
+        // Get shipping address (you can collect this in a form)
         const shippingAddress = {
             street: '123 Main St',
             city: 'Kigali',
             state: 'Kigali',
             zipCode: '00000',
             country: 'Rwanda'
+        };
+
+        const response = await fetch(`${API_URL}/checkout`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({ shippingAddress })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            // Save order ID and redirect to payment page
+            localStorage.setItem('currentOrderId', data.order.orderId);
+            window.location.href = '/payment.html';
+        } else {
+            alert(data.message);
         }
     } catch (error) {
-
+        console.error('Error during checkout:', error);
+        alert('Checkout failed');
     }
 }

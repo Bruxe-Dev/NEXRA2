@@ -163,3 +163,39 @@ async function proceedToCheckout() {
         alert('Checkout failed');
     }
 }
+
+//Payment Process
+
+async function processPayment(paymentMethod) {
+    try {
+        const token = getToken();
+        const orderId = localStorage.getItem('currentOrderId');
+
+        if (!orderId) {
+            alert('No order found');
+            return;
+        }
+
+        const response = await fetch(`${API_URL}/checkout/payment`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({ orderId, paymentMethod })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            alert('Payment successful! Order placed.');
+            localStorage.removeItem('currentOrderId');
+            window.location.href = '/order-confirmation.html';
+        } else {
+            alert('Payment failed');
+        }
+    } catch (error) {
+        console.error('Error processing payment:', error);
+        alert('Payment failed');
+    }
+}

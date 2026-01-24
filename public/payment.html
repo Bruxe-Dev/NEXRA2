@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/p7.png" type="image/png">
+    <title>Payment - Nexra</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/p7.png" alt="logo" class="navbar-logo">
+                <span class="brand-name">Nexra</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="mb-4">Choose Payment Method</h2>
+                
+                <div class="payment-methods">
+                    <div class="payment-option mb-3">
+                        <button class="btn btn-outline-primary w-100 p-3" 
+                                onclick="processPayment('credit_card')">
+                            <i class="fas fa-credit-card"></i> Credit Card
+                        </button>
+                    </div>
+                    
+                    <div class="payment-option mb-3">
+                        <button class="btn btn-outline-primary w-100 p-3" 
+                                onclick="processPayment('paypal')">
+                            <i class="fab fa-paypal"></i> PayPal
+                        </button>
+                    </div>
+                    
+                    <div class="payment-option mb-3">
+                        <button class="btn btn-outline-primary w-100 p-3" 
+                                onclick="processPayment('mobile_money')">
+                            <i class="fas fa-mobile-alt"></i> Mobile Money
+                        </button>
+                    </div>
+                    
+                    <div class="payment-option mb-3">
+                        <button class="btn btn-outline-primary w-100 p-3" 
+                                onclick="processPayment('bank_transfer')">
+                            <i class="fas fa-university"></i> Bank Transfer
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

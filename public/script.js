@@ -241,3 +241,32 @@ async function displayCart() {
 
     cartContainer.innerHTML = html;
 }
+
+
+//==================Add Event listeners======================//
+
+// When page loads, attach click events to all "Add" buttons
+document.addEventListener('DOMContentLoaded', function () {
+    // Update cart count on page load
+    updateCartCount();
+
+    // Find all "Add to Cart" buttons
+    const addButtons = document.querySelectorAll('.add-btn');
+
+    addButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const productId = this.getAttribute('data-product-id');
+
+            if (productId) {
+                addToCart(productId);
+            } else {
+                alert('Product ID not found. Please add data-product-id to your buttons.');
+            }
+        });
+    });
+
+    // If on cart page, display cart items
+    if (document.getElementById('cart-items-container')) {
+        displayCart();
+    }
+});
